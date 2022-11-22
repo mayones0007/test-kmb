@@ -1,26 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div v-if="user">
+    <NavBar/>
+    <div class="page">
+    <router-view></router-view>
+    </div>
+  </div>
+  <LoginForm v-else/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavBar from './components/NavBar.vue'
+import LoginForm from './components/LoginForm.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    NavBar,
+    LoginForm,
+  },
+  computed: {
+    user() {
+      return this.$store.state.user.identityId
+    }
+  },
+  async created() {
+    await this.$store.dispatch('getUser')
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.page {
+  padding: 20px;
 }
 </style>

@@ -1,24 +1,16 @@
 # test-kmb
 
-## Project setup
+## Для запуска приложения сначала установите все пакеты командой
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Для запуска проекта локально введите команду в корне проекта и он будет доступен по адресу http://localhost:8080/about
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Команда для продакшена
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
